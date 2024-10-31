@@ -3,11 +3,13 @@ from typing import Optional
 from datetime import date
 from pydantic import BaseModel, Field
 
+from app.users.router import router as user_router
 from app.bookings.router import router as bookings_router
 
 
 app = FastAPI()
 
+app.include_router(user_router)
 app.include_router(bookings_router)
 
 
